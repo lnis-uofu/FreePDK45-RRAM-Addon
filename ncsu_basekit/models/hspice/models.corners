@@ -1,0 +1,13 @@
+.LIB tt
+.include '/research/ece/lnis/USERS/giacomin/freepdk_45nm/virtuoso_hspice/FreePDK45/ncsu_basekit/models/hspice/hspice_nom.include'
+.ENDL tt
+
+
+.LIB ss
+.include '/research/ece/lnis/USERS/giacomin/freepdk_45nm/virtuoso_hspice/FreePDK45/ncsu_basekit/models/hspice/hspice_ss.include'
+.ENDL ss
+
+
+.LIB ff
+.include '/research/ece/lnis/USERS/giacomin/freepdk_45nm/virtuoso_hspice/FreePDK45/ncsu_basekit/models/hspice/hspice_ff.include'
+.ENDL ff

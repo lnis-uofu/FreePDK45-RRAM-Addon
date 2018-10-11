@@ -1,0 +1,32 @@
+/*
+————————————————————————————————————————————————————————————————————————————
+Description		: ReRAM addon Calibre LVS Deck
+Date Created 		: May 05, 2017
+Last Modified On 	: May 08, 2017
+edouard.giacomin@utah.edu
+————————————————————————————————————————————————————————————————————————————
+*/
+
+//Include the FreePDK45nm LVS rules
+include $PDK_DIR/ncsu_basekit/techfile/calibre/calibreLVS.rul
+include $PDK_DIR/rram_addon/techfile/calibre/layer.inc
+// ================================================
+// == Top and Bottom Electrode layers derivation ==
+// ================================================
+topelectrodeTME = AND (AND metal2 topelectrode) metaloxide
+bottomelectrodeTME = AND metal1 bottomelectrode
+
+RRAM_cell = AND (AND bottomelectrode metaloxide ) topelectrode
+
+
+// =======================================
+// == Establish RRAM Layer Connectivity ==
+// =======================================
+CONNECT metal1 bottomelectrode BY bottomelectrodeTME
+CONNECT metal2 topelectrode BY topelectrodeTME
+
+
+// ==============================
+// == RRAM element recognition ==
+// ==============================
+DEVICE  D(ReRAM)  RRAM_cell  topelectrode(POS)  bottomelectrode(NEG)

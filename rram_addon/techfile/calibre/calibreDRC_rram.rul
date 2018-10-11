@@ -1,0 +1,101 @@
+/*
+————————————————————————————————————————————————————————————————————————————
+Description		: ReRAM addon Calibre DRC Deck
+Date Created 		: May 06, 2017
+Last Modified On 	: June 12, 2018
+edouard.giacomin@utah.edu
+————————————————————————————————————————————————————————————————————————————
+*/
+
+//Include the FreePDK45nm DRC rules
+include $PDK_DIR/ncsu_basekit/techfile/calibre/calibreDRC.rul
+
+////////////////////////////////////
+// Define additional boolean layers
+////////////////////////////////////
+layer topelectrode 30
+layer bottomelectrode 31
+layer metaloxide 32
+
+
+// Bottom electrode metal1 rules
+RRAM.BE_metal1.1 { @ Bottomelectrode has to be included in metal1.
+bottomelectrode NOT INSIDE metal1                   
+}
+
+RRAM.BE_metal1.2 { @ Metal1 must extend past Bottomelectrode by 0.0025 on each sides.
+RECTANGLE ENCLOSURE bottomelectrode metal1 
+GOOD 0.0025 0.0025 0.0025 0.0025                
+}
+
+// Top electrode metal2 rules
+RRAM.TE_metal2.1 { @ Topelectrode has to be included in metal2.
+topelectrode NOT INSIDE metal2                   
+}
+
+RRAM.TE_metal2.2 { @ Metal2 must extend past topelectrode by 0.0025 on each sides.
+RECTANGLE ENCLOSURE topelectrode metal2
+GOOD 0.0025 0.0025 0.0025 0.0025                
+}
+
+
+
+// Top electrode rules
+RRAM.TE.1 { @ Minimum width for topelectrode is 0.065um.
+INTERNAL topelectrode < 0.065               
+}
+
+RRAM.TE.2 { @ Minimum spacing between topelectrode shapes is 0.075um.
+EXTERNAL topelectrode < 0.075               
+}
+
+
+
+// Bottom electrode rules
+RRAM.BE.1 { @ Minimum width for bottomelectrode is 0.060um.
+INTERNAL bottomelectrode < 0.060                
+}
+
+RRAM.BE.2 { @ Bottomelectrode has to be entirely included in metaloxide.
+bottomelectrode NOT INSIDE metaloxide                   
+}
+
+RRAM.BE.3 { @ Metaloxide must extend past bottomelectrode by 0.0025 on each sides.
+RECTANGLE ENCLOSURE bottomelectrode metaloxide
+GOOD 0.0025 0.0025 0.0025 0.0025 
+}
+
+RRAM.BE.4 { @ Minimum spacing between bottomelectrode shapes is 0.075um.
+EXTERNAL bottomelectrode < 0.075                  
+}
+
+
+
+// Metal oxide rules
+RRAM.OX.1 { @ Minimum width for metaloxide is 0.065um.
+INTERNAL metaloxide < 0.065               
+}
+
+RRAM.OX.2 { @ Metaloxide has to be entirely included in topelectrode.
+metaloxide NOT INSIDE topelectrode                   
+}
+
+
+
+// Via rule
+RRAM.VIA1.1 { @ Minimum spacing between a RRAM cell and via1 is 0.065um.
+via1 ENCLOSURE topelectrode < 0.065               
+}
+
+RRAM.VIA1.2 { @ Via1 has to be outside topelectrode.
+via1 INSIDE topelectrode                  
+}
+
+RRAM.VIA1.3 { @ Via1 has to be outside metaloxide.
+via1 INSIDE metaloxide                 
+}
+
+RRAM.VIA1.4 { @ Via1 has to be outside bottomelectrode.
+via1 INSIDE bottomelectrode                
+}
+

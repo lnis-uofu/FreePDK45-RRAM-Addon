@@ -1,0 +1,86 @@
+==================================================================
+Process: Generic 45 nm + RRAM addon
+Contents: Rram Addon Manual
+File: Rram_Addon_Manual.txt
+==================================================================
+
+Update History
+   Date        who                   Details
+-----------------------------------------------------------------------
+2018-02-20     e.giacomin    First version of manual, including
+               	         notes on design rules and VerilogA model.
+-----------------------------------------------------------------------
+
+***** For documentation about the CMOS PDK, please refer to: $PDK_DIR/ncsu_basekit/doc/FreePDK45_Manual.txt *****
+
+
+Contents:
+
+I.     Introduction
+II.    Setup Files
+III.   Design Rule Notes
+IV.    LVS & PEX Notes
+V.     RRAM VerilogA Model
+
+
+--------------------------------------------------------------------------
+I.     Introduction
+--------------------------------------------------------------------------
+
+This kit contains the technology library NCSU_TechLib_FreePDK45 as well as a RRAM_Addon library.
+This library contains one cell (RRAM) with its verilogA model as well as a layout view in order to be 
+instanciated in larger designs.
+
+--------------------------------------------------------------------------
+II.    Setup Files
+--------------------------------------------------------------------------
+
+To use the kit, copy the following files from the cdssetup directory
+to the directory where you start Virtuoso:
+
+cdsinit             - Should be named .cdsinit
+cds.lib             - Cadence Library Manager library list
+lib.defs            - Open Access library list
+.runset.calibre.drc - Calibre DRC runset file, with the rules path included.
+.runset.calibre.lvs - Calibre LVS runset file, with the rules path included.
+.runset.calibre.pex - Calibre xRC runset file, with the rules path included.
+.runset.calibre.lfd - Calibre LFD runset file, with the rules path included.
+                      (requires installation of LithoSim kit v1.2)
+display.drf	- Rram addon display file
+
+Sourcing the script setup.csh (in the cdssetup directory) will copy these 
+files into the current directory if they do not exist and set the necessary
+environment variables to ensure that they are used by Calibre Interactive.
+
+--------------------------------------------------------------------------
+III.   Design Rule Notes
+--------------------------------------------------------------------------
+See $PDK_DIR/ncsu_basekit/doc/FreePDK45_Manual.txt
+for more information about design rules related to CMOS.
+
+For design rules related to RRAM, please see the following paper:
+--Referenced Paper--
+
+The DRC rules can be changed by hand in the following file: 
+$PDK_DIR/rram_addon/techfile/calibre/calibreDRC.rul
+
+The DRC rules have been written with Calibre 2017.2.
+
+---------------------------------------------------------------------------
+IV.    LVS & PEX Notes
+--------------------------------------------------------------------------
+A RRAM device is recognized if its three layers (BE, TE and MO) are sandwiched between metal 1 and metal 2.
+The choice of metals can be changed in $PDK_DIR/rram_addon/techfile/calibre/calibreLVS.rul
+
+The PEX values for a single RRAM device are the same as for a single metal 1 to metal 2 contact.
+
+
+--------------------------------------------------------------------------
+V.   RRAM VerilogA Model
+--------------------------------------------------------------------------
+
+A VeilogA model view is already included in the addon to simulate the RRAM behavior. This model is developed by stanford university. More informations are available here: https://nano.stanford.edu/stanford-rram-model
+The model can be changed by another desired model by changing the VerilogA file ($PDK_DIR/rram_addon/rram_addon/ReRAM/verilogA/veriloga.va).
+
+***** Please send all questions and comments to edouard.giacomin@utah.edu *****
+

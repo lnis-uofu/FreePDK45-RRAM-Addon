@@ -1,0 +1,21 @@
+==================================================================
+Process: Generic 45 nm + RRAM addon
+Contents: Rram Release Notes
+File: Rram_Addon_Release_Notes.txt
+==================================================================
+
+Release Notes for Rram Addon 1.0 (2018-02-20)
+***** For the CMOS PDK release notes, please refer to: $PDK_DIR/ncsu_basekit/doc/FreePDK45_Release_Notes.txt *****
+
+Included in this release:
+ - RRAM Addon Technology library and display resources for Cadence Virtuoso 6.1.7
+ - RRAM Addon Calibre DRC and LVS rules
+ - RRAM Addon Calibre DRC and LVS runset files
+ - RRAM cell layout view
+ - RRAM Addon layer.inc file
+ - RRAM cell VerilogA view (https://nano.stanford.edu/stanford-rram-model)
+
+
+Planned for the next release:
+ - RRAM Addon Calibre PEX rules
+
