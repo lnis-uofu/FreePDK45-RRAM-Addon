@@ -1,5 +1,5 @@
 ***********************************************************************************
-*** FreePDK 45nm version 1.4 (2011-04-07) + Rram Addon version 1.0 (2018-02-20) ***
+*** FreePDK 45nm version 1.4 (2011-04-07) + Rram Addon version 1.0 (2018-05-20) ***
 ***********************************************************************************
 
 *****Please first read the original_readme.txt which provide information and copyrights about the FreePDK 45nm design kit.*****
