@@ -2,6 +2,13 @@
 *** FreePDK 45nm version 1.4 (2011-04-07) + Rram Addon version 1.0 (2018-05-20) ***
 ***********************************************************************************
 
+***********************
+***** Description *****
+***********************
+This addon describes a CMOS compatible RRAM technology, for the NCSU FreePDK 45nm. The addon comprises of the Stanford RRAM VerilogA model, fitted on published experimental results as well as a set of DRC and LVS rules for Calibre to ensure the correctness of the physical designs. It also allows precise evaluations of RRAM-based systems.
+
+
+
 *****Please first read the original_readme.txt which provide information and copyrights about the FreePDK 45nm design kit.*****
 *****This README_rram_addon.txt file is intended to provide information for the rram addon installation and use.*****
 
