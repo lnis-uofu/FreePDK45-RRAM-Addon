@@ -37,6 +37,11 @@ from the university of Utah.
 
 Contributions and modifications to this kit are welcomed and encouraged.
 
+More information can be found in the RRAM Addon publication: 
+***
+E. Giacomin and P. Gaillardon, "A Resistive Random Access Memory Addon for the NCSU FreePDK 45 nm," in IEEE Transactions on Nanotechnology, vol. 18, pp. 68-72, 2019.
+***
+
 
 ********************
 ***** Contents *****
@@ -64,5 +69,5 @@ $PDK_DIR/rram_addon/README.txt
 3) To be able to run HSPICE simulation, you will need to convert the analogLib to a hspice format. More information is available in the HSPICE documentation.
 
 
-***** Please send all questions and comments to edouard.giacomin@utah.edu *****
+***** Please send all questions and comments to edouard.giacomin@utah.edu / pierre-emmanuel.gaillardon@utah.edu *****
 
