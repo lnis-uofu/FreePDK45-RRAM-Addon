@@ -2,7 +2,7 @@
 ; Customizations can be made at the end of this file
 
 ; Load display.drf
-envSetVal( "graphic" "drfPath" 'string strcat( getShellEnvVar("PDK_DIR") "$PDK_DIR/ncsu_basekit/cdssetup/display.drf"))
+;envSetVal( "graphic" "drfPath" 'string strcat( getShellEnvVar("PDK_DIR") "$PDK_DIR/ncsu_basekit/cdssetup/display.drf"))
 
 ; Load Bind Keys
 loadi( strcat( getShellEnvVar("PDK_DIR") "/ncsu_basekit/cdssetup/common_bindkeys.il"))
@@ -85,7 +85,7 @@ asiSetEnvOptionVal(asiGetTool('hspiceD) "stopViewList"
          list("hspice" "hspiceD"
       ))
 
-;Load the drf file
+;Load the RRAM addon drf file
 envSetVal("graphic" "drfPath" 'string strcat(getShellEnvVar("PDK_DIR") "/rram_addon/cdssetup/display_rram.drf"))
 
 
