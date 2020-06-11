@@ -32,7 +32,7 @@ limitations under the License.
 ***** Welcome to the FreePDK 45nm + Rram Addon Open-Source Process Design Kit *****
 ***********************************************************************************
 
-The Rram Addon was created by Edouard Giacomin and Pierre-Emmanuel Gaillardon 
+The RRAM Addon was created by Edouard Giacomin and Pierre-Emmanuel Gaillardon 
 from the university of Utah.
 
 Contributions and modifications to this kit are welcomed and encouraged.
