@@ -4,7 +4,7 @@ This addon describes a CMOS compatible RRAM technology, for the NCSU FreePDK 45n
 
 
 *****Please first read the original_readme.txt which provide information and copyrights about the FreePDK 45nm design kit.*****
-*****This README_rram_addon.txt file is intended to provide information for the rram addon installation and use.*****
+*****This README.md file is intended to provide information for the rram addon installation and use.*****
 
 Contributions and modifications to this kit are welcomed and encouraged.
 More information can be found in the following publication: 
