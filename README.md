@@ -3,46 +3,19 @@
 This addon describes a CMOS compatible RRAM technology, for the NCSU FreePDK 45nm. The addon comprises of the Stanford RRAM VerilogA model, fitted on published experimental results as well as a set of DRC and LVS rules for Calibre to ensure the correctness of the physical designs. It also allows precise evaluations of RRAM-based systems.
 
 
-
 *****Please first read the original_readme.txt which provide information and copyrights about the FreePDK 45nm design kit.*****
 *****This README_rram_addon.txt file is intended to provide information for the rram addon installation and use.*****
 
-Copyright 2018 - Edouard Giacomin, Pierre-Emmanuel Gaillardon
-                 University of Utah
-
-All files are licensed under the Apache License, Version 2.0 (the "License");
-you may not use these files except in compliance with the License.
-You may obtain a copy of the License at
-
-     http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
-
-***********************************************************************************
-***** Welcome to the FreePDK 45nm + Rram Addon Open-Source Process Design Kit *****
-***********************************************************************************
-
-The RRAM Addon was created by Edouard Giacomin and Pierre-Emmanuel Gaillardon 
-from the university of Utah.
-
 Contributions and modifications to this kit are welcomed and encouraged.
+More information can be found in the following publication: 
 
-More information can be found in the RRAM Addon publication: 
-***
-E. Giacomin and P. Gaillardon, "A Resistive Random Access Memory Addon for the NCSU FreePDK 45 nm," in IEEE Transactions on Nanotechnology, vol. 18, pp. 68-72, 2019.
-***
+[*E. Giacomin and P. Gaillardon, "A Resistive Random Access Memory Addon for the NCSU FreePDK 45 nm," in IEEE Transactions on Nanotechnology, vol. 18, pp. 68-72, 2019.*](https://ieeexplore.ieee.org/document/8540319)
 
 
 ### Contents
-ncsu_basekit/     Base kit for custom design
-osu_soc/          Standard-cell kit for synthesis, place, & route
-rram_addon/       Rram addon (rram layout and VerilogA view, DRC/LVS rules etc.)
-
+* ncsu_basekit/     Base kit for custom design
+* osu_soc/          Standard-cell kit for synthesis, place, & route
+* rram_addon/       Rram addon (rram layout and VerilogA view, DRC/LVS rules etc.)
 
 
 ### How to install
@@ -60,4 +33,22 @@ $PDK_DIR/rram_addon/README.txt
 
 
 > Please send all questions and comments to edouard.giacomin@utah.edu / pierre-emmanuel.gaillardon@utah.edu
+
+
+### Copyright
+Copyright 2018 - Edouard Giacomin, Pierre-Emmanuel Gaillardon
+                 University of Utah
+
+All files are licensed under the Apache License, Version 2.0 (the "License");
+you may not use these files except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
 
