@@ -1,21 +1,20 @@
-###############################################################################
-#                                                                             #
-# FreePDK Setup Script                                                        #
-#    2/23/2008 by Rhett Davis (rhett_davis@ncsu.edu)                           #
-#                                                                             #
-###############################################################################
+#!/bin/csh
 
-# Set the PDK_DIR variable to the root directory of the FreePDK distribution
-setenv PDK_DIR /research/ece/lnis/USERS/giacomin/freepdk_45nm/virtuoso_hspice/FreePDK45
-# Set CDSHOME to the root directory of the Cadence ICOA installation
-setenv CDSHOME /uusoc/facility/cad_tools/Cadence/IC6.1.7.500.1300
+#################################################################################################
+#																																																#
+# 																		Directory Setup Script																		#
+#																																																#
+# FreePDK 45nm version 1.4 (2011-04-07) + RRam Addon version 1.1 (2021-04-21)  [Apache License]	#
+# Edouard Giacomin and Pierre Emmanuel Gaillardon																								#
+# University of Utah																																						#
+# ECE Department																																								#
+# E. Giacomin and P. Gaillardon, "A Resistive Random Access Memory Addon 												#
+# for the NCSU FreePDK 45 nm," in IEEE Transactions on Nanotechnology, vol. 18, pp. 68-72, 2019 #
+# (https://ieeexplore.ieee.org/document/8540319) 																							  #
+#																																																#
+#################################################################################################
 
-# Set HSP_INST_DIR to the root directory of the HSPICE installation
-#setenv HSP_INST_DIR /afs/eos/dist/hspice2010
-
-# Set MGC_HOME to the root directory of the Calibre installation
-#setenv MGC_HOME /afs/eos/dist/calibre2010
-
+#Copy the virtuoso files
 if !(-f ${PWD}/.cdsinit ) then
   cp ${PDK_DIR}/rram_addon/cdssetup/cdsinit ${PWD}/.cdsinit
 endif
@@ -44,13 +43,6 @@ if !(-f ${PWD}/.runset.calibre.pex ) then
   cp ${PDK_DIR}/ncsu_basekit/cdssetup/runset.calibre.pex ${PWD}/.runset.calibre.pex
 endif
 
-set present = `printenv PYTHONPATH`
-if ($present == "") then
-  setenv PYTHONPATH $PDK_DIR'/ncsu_basekit/techfile/cni'
-else
-  setenv PYTHONPATH $PYTHONPATH':'$PDK_DIR'/ncsu_basekit/techfile/cni'
+if !(-f ${PWD}/launch-virtuoso.csh ) then
+  cp ${PDK_DIR}/rram_addon/cdssetup/launch-virtuoso.csh ${PWD}/launch-virtuoso.csh
 endif
-
-setenv MGC_CALIBRE_DRC_RUNSET_FILE ./.runset.calibre.drc
-setenv MGC_CALIBRE_LVS_RUNSET_FILE ./.runset.calibre.lvs
-setenv MGC_CALIBRE_PEX_RUNSET_FILE ./.runset.calibre.pex

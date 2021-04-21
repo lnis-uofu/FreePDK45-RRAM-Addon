@@ -1,9 +1,6 @@
 ; FreePDK 45nm Initialization File (.cdsinit)
 ; Customizations can be made at the end of this file
 
-; Load display.drf
-;envSetVal( "graphic" "drfPath" 'string strcat( getShellEnvVar("PDK_DIR") "$PDK_DIR/ncsu_basekit/cdssetup/display.drf"))
-
 ; Load Bind Keys
 loadi( strcat( getShellEnvVar("PDK_DIR") "/ncsu_basekit/cdssetup/common_bindkeys.il"))
 
@@ -58,34 +55,35 @@ printf( strcat(
 "Done loading FreePDK customizations.\n"
 ))
 
-; Comment the line below to disable auto opening of the Library Manager 
-ddsOpenLibManager()
 
 ;Modifications to setup hspice and automatically add the model files
 ;By: Edouard Giacomin
 
-; Setup Hspice
-if( getShellEnvVar("HSP_INST_DIR") then
-  loadi( strcat( getShellEnvVar("HSP_INST_DIR") "/interface/HSPICE.ile"))
+;#############################
+;# load HSPICE skills function
+;#############################
+if( getShellEnvVar("HSP_HOME") then
+  loadi( strcat( getShellEnvVar("HSP_HOME") "/../interface/spiceADE.ile"))
+  ;For older version of HSPICE, use this line instead:
+  ;loadi( strcat( getShellEnvVar("HSP_HOME") "/interface/HSPICE.ile"))   
 ) ;if
 
-;Use HSPICE as default simulator
-envSetVal("asimenv.startup" "simulator" 'string "HSPICE")
+;######################
+;# HSPICE configuration
+;######################
+if( getShellEnvVar("HSP_HOME") then
+	envSetVal("asimenv.startup" "simulator" 'string "HSPICE")
+	asiSetEnvOptionVal(asiGetTool('HSPICE) "modelFiles"
+	list( strcat( getShellEnvVar("PDK_DIR") "ncsu_basekit/models/hspice/models.corners;tt"
+	)))
+) ;if
 
-;Add model file
-asiSetEnvOptionVal(asiGetTool('HSPICE) "modelFiles"
-list( strcat( getShellEnvVar("PDK_DIR") "ncsu_basekit/models/hspice/models.corners;tt"
-)))
-
-;change switch view list and stop view list
-asiSetEnvOptionVal(asiGetTool('hspiceD) "switchViewList"
-         list("hspice" "cmos_sch" "cmos.sch" "schematic" "verilogA" "veriloga" "ahdl" "hspiceD"
-      ))       
-asiSetEnvOptionVal(asiGetTool('hspiceD) "stopViewList"
-         list("hspice" "hspiceD"
-      ))
-
-;Load the RRAM addon drf file
+;#######################
+;# Load display.drf file
+;#######################
 envSetVal("graphic" "drfPath" 'string strcat(getShellEnvVar("PDK_DIR") "/rram_addon/cdssetup/display_rram.drf"))
 
-
+;##############################################################
+;# Open the Library Manager, position is set by .Xdefaults file
+;##############################################################
+(unless (getShellEnvVar "SKIP_CDSLIB_MANAGER") (ddsOpenLibManager))

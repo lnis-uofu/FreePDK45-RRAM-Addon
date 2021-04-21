@@ -1,5 +1,4 @@
-
-load( "/research/ece/lnis/CAD_TOOLS/DKITS/FreePDK45/ncsu_basekit/cdssetup/display.drf" )
+load(strcat(getShellEnvVar("PDK_DIR") "/ncsu_basekit/cdssetup/display.drf" ))
 
 drDefinePacket(
 ;( DisplayName  PacketName           Stipple    LineStyle  Fill       Outline    [FillStyle])
